@@ -23,9 +23,10 @@ return {
 			lspconfig.pyright.setup({})
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.clangd.setup({})
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			-- Shows code info, definitons, and code suggestions/actions
+			vim.keymap.set("n", "Z", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "fd", vim.lsp.buf.definition, {})
-			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set({ "n", "v" }, "<leader>cx", vim.lsp.buf.code_action, {})
 		end,
 	},
 }
