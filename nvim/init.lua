@@ -1,19 +1,3 @@
--- Indent spacing
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
--- Leader key set to SPACE
-vim.g.mapleader = " "
-
-vim.cmd(":set number")
--- Copy to system clipboard
-vim.keymap.set({ "n", "x", "v" }, "<leader>y", '"*y', { noremap = true })
--- Paste from system clipboard
-vim.keymap.set({ "n", "x", "v" }, "<leader>p", '"*p', { noremap = true })
--- Split editor horiz
-vim.keymap.set("n", "<C-k>", ":vert topleft split<CR>")
--- Using lazyloader for packages
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
@@ -25,7 +9,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		lazypath,
 	})
 end
+
 vim.opt.rtp:prepend(lazypath)
 
+require("vim-opts")
 require("lazy").setup("plugins")
-
